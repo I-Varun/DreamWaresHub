@@ -2461,30 +2461,7 @@
         ]
       },
       "id": "0515",
-      "quantity": 1,
-      "user": "d632"
-    },
-    {
-      "0": {
-        "id": 2,
-        "title": "iPhone X",
-        "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-        "price": 899,
-        "discountPercentage": 17.94,
-        "rating": 4.44,
-        "stock": 34,
-        "brand": "Apple",
-        "category": "smartphones",
-        "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-        "images": [
-          "https://i.dummyjson.com/data/products/2/1.jpg",
-          "https://i.dummyjson.com/data/products/2/2.jpg",
-          "https://i.dummyjson.com/data/products/2/3.jpg",
-          "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-        ]
-      },
-      "id": "ce72",
-      "quantity": 1,
+      "quantity": 3,
       "user": "d632"
     },
     {
@@ -2507,7 +2484,7 @@
         ]
       },
       "id": "1ccd",
-      "quantity": 1,
+      "quantity": 3,
       "user": "d632"
     },
     {
@@ -2529,29 +2506,6 @@
         ]
       },
       "id": "fad1",
-      "quantity": 1,
-      "user": "d632"
-    },
-    {
-      "0": {
-        "id": "2",
-        "title": "iPhone X",
-        "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-        "price": 899,
-        "discountPercentage": 17.94,
-        "rating": 4.44,
-        "stock": 34,
-        "brand": "Apple",
-        "category": "smartphones",
-        "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-        "images": [
-          "https://i.dummyjson.com/data/products/2/1.jpg",
-          "https://i.dummyjson.com/data/products/2/2.jpg",
-          "https://i.dummyjson.com/data/products/2/3.jpg",
-          "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-        ]
-      },
-      "id": "f11a",
       "quantity": 1,
       "user": "d632"
     }
