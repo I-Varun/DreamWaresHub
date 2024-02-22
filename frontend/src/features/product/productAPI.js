@@ -61,7 +61,7 @@ for(let key in pagination){
     //TODO: we will not hard-code server URL here
     const response = await fetch('http://localhost:8080/products?'+queryString) 
     const data = await response.json()
-    console.log(data)
+    
     const products = data.data;
     const totalItems = data.items;
     // const totalItems = await response.headers.get('X-Total-Count')

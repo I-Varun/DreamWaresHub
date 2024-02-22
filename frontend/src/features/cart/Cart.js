@@ -17,8 +17,9 @@ export default function Cart() {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true);
   const items = useSelector(selectItems);
-  console.log(items)
-  const totalAmount = items.reduce((amount, item)=>item.price*item.quantity + amount,0);
+  
+  console.log(items[0][0].price);
+  const totalAmount = items.reduce((amount, item)=>items[0][0].price*item.quantity + amount,0);
   
   const totalItems = items.reduce((total, item)=>item.quantity + total,0);
 
