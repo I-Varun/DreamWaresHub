@@ -1,18 +1,21 @@
-import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import {
   deleteItemFromCartAsync,
   selectItems,
   updateCartAsync,
-} from '../features/cart/cartSlice';
-import { Navigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+} from "../features/cart/cartSlice";
+import { Navigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import {
   selectLoggedInUser,
   updateUserAsync,
-} from '../features/auth/authSlice';
-import { useState } from 'react';
-import { createOrderAsync } from '../features/order/orderSlice';
+} from "../features/auth/authSlice";
+import { useState } from "react";
+import {
+  createOrderAsync,
+  selectCurrentOrder,
+} from "../features/order/orderSlice";
 
 function Checkout() {
   const dispatch = useDispatch();
@@ -25,11 +28,15 @@ function Checkout() {
 
   const user = useSelector(selectLoggedInUser);
   const items = useSelector(selectItems);
-  const totalAmount = items.reduce((amount, item)=>items[0][0].price*item.quantity + amount,0);
+  const totalAmount = items.reduce(
+    (amount, item) => items[0][0].price * item.quantity + amount,
+    0
+  );
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
+  const currentOrder = useSelector(selectCurrentOrder);
 
   const [selectedAddress, setSelectedAddress] = useState(null);
-  const [paymentMethod, setPaymentMethod] = useState('cash');
+  const [paymentMethod, setPaymentMethod] = useState("cash");
 
   const handleQuantity = (e, item) => {
     dispatch(updateCartAsync({ ...item, quantity: +e.target.value }));
@@ -49,19 +56,31 @@ function Checkout() {
     setPaymentMethod(e.target.value);
   };
 
-
   const handleOrder = (e) => {
-    const order = {items, totalAmount, totalItems, user, paymentMethod, selectedAddress}
-    dispatch(createOrderAsync(order))
+    const order = {
+      items,
+      totalAmount,
+      totalItems,
+      user,
+      paymentMethod,
+      selectedAddress,
+      status: "pending",
+    };
+    dispatch(createOrderAsync(order));
     //TODO : Redirect to order-success page
     //TODO : clear cart after order
     //TODO : on server change the stock number of items
   };
 
-
   return (
     <>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}
+      {currentOrder && (
+        <Navigate
+          to={`/order-success/${currentOrder.id}`}
+          replace={true}
+        ></Navigate>
+      )}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
           <div className="lg:col-span-3">
@@ -99,8 +118,8 @@ function Checkout() {
                       <div className="mt-2">
                         <input
                           type="text"
-                          {...register('name', {
-                            required: 'name is required',
+                          {...register("name", {
+                            required: "name is required",
                           })}
                           id="name"
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -118,8 +137,8 @@ function Checkout() {
                       <div className="mt-2">
                         <input
                           id="email"
-                          {...register('email', {
-                            required: 'email is required',
+                          {...register("email", {
+                            required: "email is required",
                           })}
                           type="email"
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -137,8 +156,8 @@ function Checkout() {
                       <div className="mt-2">
                         <input
                           id="phone"
-                          {...register('phone', {
-                            required: 'phone is required',
+                          {...register("phone", {
+                            required: "phone is required",
                           })}
                           type="tel"
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -156,8 +175,8 @@ function Checkout() {
                       <div className="mt-2">
                         <input
                           type="text"
-                          {...register('street', {
-                            required: 'street is required',
+                          {...register("street", {
+                            required: "street is required",
                           })}
                           id="street"
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -175,8 +194,8 @@ function Checkout() {
                       <div className="mt-2">
                         <input
                           type="text"
-                          {...register('city', {
-                            required: 'city is required',
+                          {...register("city", {
+                            required: "city is required",
                           })}
                           id="city"
                           autoComplete="address-level2"
@@ -195,8 +214,8 @@ function Checkout() {
                       <div className="mt-2">
                         <input
                           type="text"
-                          {...register('state', {
-                            required: 'state is required',
+                          {...register("state", {
+                            required: "state is required",
                           })}
                           id="state"
                           autoComplete="address-level1"
@@ -215,8 +234,8 @@ function Checkout() {
                       <div className="mt-2">
                         <input
                           type="text"
-                          {...register('pinCode', {
-                            required: 'pinCode is required',
+                          {...register("pinCode", {
+                            required: "pinCode is required",
                           })}
                           id="pinCode"
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -417,7 +436,7 @@ function Checkout() {
                   Shipping and taxes calculated at checkout.
                 </p>
                 <div className="mt-6">
-                  <div 
+                  <div
                     onClick={handleOrder}
                     className="flex cursor-pointer items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                   >
