@@ -1,7 +1,7 @@
 require('dotenv').config()
 const { User } = require("../model/User");
 const crypto = require("crypto");
-const { sanitizeUser , sendMail } = require("../services/common");
+const { sanitizeUser , sendMail } = require("../../services/common");
 const SECRET_KEY = "SECRET_KEY";
 const jwt = require("jsonwebtoken");
 

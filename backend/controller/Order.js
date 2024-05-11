@@ -1,7 +1,7 @@
 const { Order } = require("../model/Order");
 const { User } = require("../model/User");
 const { Product } = require("../model/Product");
-const { sendMail, invoiceTemplate } = require("../services/common");
+const { sendMail, invoiceTemplate } = require("../../services/common");
 
 exports.fetchOrdersByUser = async (req, res) => {
     const { id } = req.user;
