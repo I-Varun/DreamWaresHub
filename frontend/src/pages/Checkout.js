@@ -329,11 +329,11 @@ function Checkout() {
                   <div className="mt-10 space-y-10">
                     <fieldset>
                       <legend className="text-sm font-semibold leading-6 text-gray-900">
-                        Payment Methods
+                        Payment Method
                       </legend>
-                      <p className="mt-1 text-sm leading-6 text-gray-600">
-                        Choose One
-                      </p>
+                      {/* <p className="mt-1 text-sm leading-6 text-gray-600">
+                        Choose one
+                      </p> */}
                       <div className="mt-6 space-y-6">
                         <div className="flex items-center gap-x-3">
                           <input
@@ -352,7 +352,7 @@ function Checkout() {
                             Cash
                           </label>
                         </div>
-                        <div className="flex items-center gap-x-3">
+                        {/* <div className="flex items-center gap-x-3">
                           <input
                             id="card"
                             onChange={handlePayment}
@@ -362,13 +362,13 @@ function Checkout() {
                             type="radio"
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
-                          {/* <label
+                          <label
                             htmlFor="card"
                             className="block text-sm font-medium leading-6 text-gray-900"
                           >
                             Card Payment
-                          </label> */}
-                        </div>
+                          </label>
+                        </div> */}
                       </div>
                     </fieldset>
                   </div>
