@@ -57,7 +57,6 @@ cd DreamWaresHub
 
 # ---------------------------
 # 🔧 Backend Setup
-# ---------------------------
 cd backend
 
 # Install backend dependencies
@@ -68,7 +67,6 @@ npm run server
 
 # ---------------------------
 # 💻 Frontend Setup
-# ---------------------------
 cd ../frontend
 
 # Install frontend dependencies
