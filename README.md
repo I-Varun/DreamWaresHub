@@ -49,5 +49,33 @@ An advanced, full-featured **e-commerce web application** built with the **MERN 
 
 ---
 
-## 📁 Folder Structure
+# 🚀 Project Setup Guide (Backend + Frontend)
+
+# 1. Clone the Repository
+git clone https://github.com/I-Varun/DreamWaresHub.git
+cd DreamWaresHub
+
+# ---------------------------
+# 🔧 Backend Setup
+# ---------------------------
+cd backend
+
+# Install backend dependencies
+npm install
+
+# Start the backend server
+npm run server
+
+# ---------------------------
+# 💻 Frontend Setup
+# ---------------------------
+cd ../frontend
+
+# Install frontend dependencies
+npm install
+
+# Start the frontend React app
+npm start
+
+
 
