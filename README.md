@@ -9,7 +9,7 @@ An advanced, full-featured **e-commerce web application** built with the **MERN 
 
 ## 🖼️ Screenshot of the Project
 
-![DreamWaresHub Screenshot](./Screenshot%202024-06-02%20230438.png)
+![DreamWaresHub Screenshot](DreamWaresHub.png)
 
 ---
 
@@ -55,7 +55,6 @@ An advanced, full-featured **e-commerce web application** built with the **MERN 
 git clone https://github.com/I-Varun/DreamWaresHub.git
 cd DreamWaresHub
 
-# ---------------------------
 # 🔧 Backend Setup
 cd backend
 
@@ -65,7 +64,6 @@ npm install
 # Start the backend server
 npm run server
 
-# ---------------------------
 # 💻 Frontend Setup
 cd ../frontend
 
