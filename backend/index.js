@@ -29,8 +29,6 @@ const { Order } = require('./model/Order');
 
 // Webhook
 
-// TODO: we will capture actual order after deploying out server live on public URL
-
 const endpointSecret = process.env.ENDPOINT_SECRET;
 
 server.post('/webhook', express.raw({type: 'application/json'}), async (request, response) => {
@@ -74,8 +72,6 @@ const opts = {};
 opts.jwtFromRequest = cookieExtractor;
 opts.secretOrKey = process.env.JWT_SECRET_KEY; 
 
-
-//middlewares
 
 //server.use(express.static(path.resolve(__dirname,'build')))
 
