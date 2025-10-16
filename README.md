@@ -9,7 +9,7 @@ An advanced, full-featured **e-commerce web application** built with the **MERN 
 
 ## 🖼️ Screenshot of the Project
 
-![DreamWaresHub Screenshot](DreamWaresHub.png)
+![DreamWaresHub Screenshot](./frontend/public/DreamWaresHub.png)
 
 ---
 
